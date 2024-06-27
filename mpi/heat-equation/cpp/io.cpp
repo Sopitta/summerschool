@@ -10,6 +10,7 @@
 #include "heat.hpp"
 #include "pngwriter.h"
 
+// copy test
 // Write a picture of the temperature field
 void write_field(const Field& field, const int iter, const ParallelData parallel)
 {
@@ -67,32 +68,22 @@ void read_field(Field& field, std::string filename,
 
     field.setup(nx_full, ny_full, parallel);
 
+    // Read the full array
     auto full = Matrix<double> (nx_full, ny_full);
+
+    if (0 == parallel.rank) {
+        for (int i = 0; i < nx_full; i++)
+            for (int j = 0; j < ny_full; j++)
+                file >> full(i, j);
+    }
+
+    file.close();
 
     // Inner region (no boundaries)
     auto inner = Matrix<double> (field.nx, field.ny);
 
-    if (0 == parallel.rank) {
-        // Read the full array
-        for (int i = 0; i < nx_full; i++)
-            for (int j = 0; j < ny_full; j++)
-                file >> full(i, j);
-
-        for (int i = 0; i < field.nx; i++)
-            for (int j = 0; j < field.ny; j++)
-                inner(i, j) = full(i, j);
-
-        // Send data to others
-        for (int p=1; p < parallel.size; p++) {
-            MPI_Send(full.data(p * field.nx, 0), field.nx * field.ny,
-                     MPI_DOUBLE, p, 22, MPI_COMM_WORLD);
-        }
-    } else {
-        MPI_Recv(inner.data(), field.nx * field.ny,
-                 MPI_DOUBLE, 0, 22, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    }
-
-    file.close();
+    MPI_Scatter(full.data(), field.nx * ny_full, MPI_DOUBLE, inner.data(),
+                field.nx * ny_full, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
     // Copy to the array containing also boundaries
     for (int i = 0; i < field.nx; i++)

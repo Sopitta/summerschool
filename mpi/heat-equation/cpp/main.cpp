@@ -10,7 +10,9 @@
 int main(int argc, char **argv)
 {
 
-    MPI_Init(&argc, &argv);
+  // TODO start: initialize MPI
+
+  // TODO end
 
     const int image_interval = 100;    // Image output interval
 
@@ -73,7 +75,9 @@ int main(int argc, char **argv)
     // Output the final field
     write_field(previous, nsteps, parallelization);
 
-    MPI_Finalize();
+  // TODO start: finalize MPI
+
+  // TODO end
 
     return 0;
 }

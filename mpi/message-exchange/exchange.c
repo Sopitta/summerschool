@@ -30,8 +30,14 @@ int main(int argc, char *argv[])
     // "receiveBuffer"
     if (rank == 0) {
 
+        MPI_Send(message, msgsize, MPI_INT, 1, 0, MPI_COMM_WORLD);
+	MPI_Recv(receiveBuffer, msgsize, MPI_INT, 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
         printf("Rank %i received %i elements, first %i\n", rank, nrecv, receiveBuffer[0]);
     } else if (rank == 1) {
+
+	MPI_Recv(message, msgsize, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+	MPI_Send(receiveBuffer, msgsize, MPI_INT, 0, 1, MPI_COMM_WORLD);
 
         printf("Rank %i received %i elements, first %i\n", rank, nrecv, receiveBuffer[0]);
     }

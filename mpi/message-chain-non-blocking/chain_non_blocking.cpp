@@ -10,7 +10,8 @@ int main(int argc, char *argv[])
     constexpr int size = 10000000;
     std::vector<int> message(size);
     std::vector<int> receiveBuffer(size);
-    MPI_Status status;
+    MPI_Status statuses[2];
+    MPI_Request requests[2];
 
     double t0, t1;
 
@@ -42,13 +43,18 @@ int main(int argc, char *argv[])
     t0 = MPI_Wtime();
 
     // TODO: Send messages
-    MPI_Send(message.data(), size, MPI_INT, destination, rank+1, MPI_COMM_WORLD);
+    
+    MPI_Isend(message.data(), size, MPI_INT, destination, rank+1, MPI_COMM_WORLD,&requests[0]);
     
     printf("Sender: %d. Sent elements: %d. Tag: %d. Receiver: %d\n",
            rank, size, rank + 1, destination);
 
     // TODO: Receive messages
-    MPI_Recv(receiveBuffer.data(), size, MPI_INT, source, rank, MPI_COMM_WORLD, &status);
+    MPI_Irecv(receiveBuffer.data(), size, MPI_INT, source, rank,
+              MPI_COMM_WORLD, &requests[1]);
+    
+   
+    MPI_Waitall(2,requests, statuses);
     
     printf("Receiver: %d. first element %d.\n",
            rank, receiveBuffer[0]);

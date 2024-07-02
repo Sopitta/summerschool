@@ -27,7 +27,14 @@ int main(){
   hipMalloc((void**)&d_a, bytes);   // device pinned
 
   // Create events
-  #error create the required timing events here
+  //error create the required timing events here
+  hipEvent_t start_kernel_event;
+  hipEventCreate(&start_kernel_event);
+  hipEvent_t start_d2h_event;
+  hipEventCreate(&start_d2h_event);
+  hipEvent_t stop_event;
+  hipEventCreate(&stop_event);
+  
 
   // Create stream
   hipStream_t stream;

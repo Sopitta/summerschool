@@ -1,0 +1,66 @@
+Legend:
+
+  A - recognized idiom
+  D - deleted loop
+  I - callee inlined here
+  L - interleaved loop
+  M - multithreaded
+  P - peeled loop
+  S - distributed loop
+  U - completely unrolled loop
+  u - partially unrolled loop
+  V - vectorized loop
+  X - loop interchanged with enclosing loop
+  Z - versioned loop for LICM
+  + - additional messages below
+
+----------
+
+ 1.           #include <stdio.h>
+ 2.           
+ 3.           #define NX 102400
+ 4.           
+ 5.           int main(void)
+ 6.           {
+ 7.               double vecA[NX], vecB[NX], vecC[NX];
+ 8.           
+ 9.               /* Initialization of the vectors */
+10.               for (int i = 0; i < NX; i++) {
+11.                   vecA[i] = 1.0 / ((double) (NX - i));
+12.                   vecB[i] = vecA[i] * vecA[i];
+13.               }
+14.               
+15.               double res = 0.0;
+16.               // TODO start: create a data region and offload the two computations
+17.               // so that data is kept in the device between the computations
+18.           #pragma omp target data map(to:vecA, vecB) map(from:vecC, res)
+19.             {
+20.           #pragma omp target teams distribute parallel for
+21. +   M---<     for (int i = 0; i < NX; i++) {
+22.     M             vecC[i] = vecA[i] + vecB[i];
+23.     M--->     }
+24.           
+25.           #pragma omp target teams distribute parallel for reduction(+:res)
+26. +   M---<     for (int i = 0; i < NX; i++) {
+27.     M             res += vecC[i] * vecB[i];
+28.     M--->     }
+29.             }
+30.           
+31.               // TODO end
+32.           
+33.               double sum = 0.0;
+34.               /* Compute the check value */
+35.               for (int i = 0; i < NX; i++) {
+36.                   sum += vecC[i];
+37.               }
+38.               printf("Reduction sum: %18.16f\n", sum);
+39.               printf("Dot product: %18.16f\n", res);
+40.           
+41.               return 0;
+42.           }
+
+----------
+
+21. Outlined parallel region
+
+26. Outlined parallel region

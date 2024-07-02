@@ -1,0 +1,25 @@
+#include <cstdio>
+#include <cstdlib>
+#include <mpi.h>
+#include <omp.h>
+
+int main(int argc, char *argv[])
+
+{	
+	int required=MPI_THREAD_MULTIPLE, provided;
+	int ntasks, rank ;
+	MPI_Init_thread(&argc, &argv, required, &provided);
+        
+
+
+
+	return 0;
+
+
+	
+
+
+
+
+
+}

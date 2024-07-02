@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 
 #define NX 102400
 
@@ -8,17 +8,18 @@ int main(void)
 
     /* Initialization of the vectors */
     for (int i = 0; i < NX; i++) {
-        vecA[i] = 1.0 / ((double) (NX - i));
+        vecA[i] = 1.0 / ((double)(NX - i));
         vecB[i] = vecA[i] * vecA[i];
     }
 
-    // TODO: Implement vector addition vecC = vecA + vecB and use OpenMP
-    //       for computing it in the device
-    #pragma omp target teams distribute parallel for
-    for (int i = 0; i < NX; i++) {
-         vecC[i] = vecA[i] + vecB[i]; 
-    
-    }
+    /* TODO:
+     *   Implement here a parallelized version of vector addition,
+     *   vecC = vecA + vecB
+     */
+     #pragma omp for
+     for (int i = 0; i < NX; i++){
+         vecC[i] = vecA[i]+vecB[i];
+     }
 
     double sum = 0.0;
     /* Compute the check value */

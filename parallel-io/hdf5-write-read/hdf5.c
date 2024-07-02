@@ -58,16 +58,24 @@ void h5_writer(int my_id, int *localvector, int localsize)
 
     /* Create the handle for parallel file access property list
        and create a new file */
+    
+    plist_id = H5PCreate(H5P_FILE_ACCESS);
+    H5Pset_fapl_mpio(plist_id, MPI_COMM_WORLD, MPI_INFO_NULL);
 
     /* Create the dataset */
+    hid_t dset_id = H5Dcreate(file, "MPI_RANKS", H5T_NATIVE_INT, dataspace, 
+                              H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
+    
 
     /* Select a hyperslab of the file dataspace */
+    H5Sselect_hyperslab(dest_id,H5S_SELECT_SET,offsets,NULL,counts,NULL);
 
     /* Now we can write our local data to the correct position in the
        dataset. Here we use collective write, but independent writes are
        also possible. */
 
     /* Close all opened HDF5 handles */
+    H5Dwrite(dest_id, H5T_NATIVE_INT, memspace, dataspace, H5P_DEFAULT, &myproc);
 }
 
 

@@ -14,10 +14,11 @@ int main(void)
 
     // TODO: Implement vector addition vecC = vecA + vecB and use OpenMP
     //       for computing it in the device
-    #pragma omp target teams distribute parallel for
+    #pragma omp target teams
+    #pragma omp loop
     for (int i = 0; i < NX; i++) {
-         vecC[i] = vecA[i] + vecB[i]; 
-    
+         vecC[i] = vecA[i] + vecB[i];
+
     }
 
     double sum = 0.0;

@@ -1,3 +1,4 @@
+
 #include <cstdio>
 
 #define NX 102400
@@ -19,8 +20,12 @@ int main(void)
 
     sum = 0.0;
     /* TODO: Parallelize computation */
-    for (i = 0; i < NX; i++) {
-        sum += vecA[i];
+    #pragma omp parallel for private(i) reduction(+:sum) 
+    {    
+       for (i = 0; i < NX; i++) {
+             //sum += vecA[i];
+             sum += vecA[i]; //reduction
+        }
     }
     printf("Sum: %ld\n", sum);
 

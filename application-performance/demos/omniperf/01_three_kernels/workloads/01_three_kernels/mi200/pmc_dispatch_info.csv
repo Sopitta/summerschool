@@ -1,0 +1,4 @@
+Index,KernelName,gpu-id
+0,"kernel1(unsigned long, float*, float*) ",4
+1,"kernel2(unsigned long, float, float*, float*, float*) ",4
+2,"kernel3(unsigned long, float, float*, float*, float*) ",4

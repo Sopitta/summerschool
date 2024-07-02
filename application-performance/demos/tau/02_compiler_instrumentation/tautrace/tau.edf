@@ -1,0 +1,129 @@
+127 dynamic_trace_events
+# FunctionId Group Tag "Name Type" Parameters
+1 TAUEVENT 0 ".TAU <unknown event>" TriggerValue
+2 TAU_DEFAULT 0 ".TAU application " EntryExit
+110 TRACER 0 "CONT_EVENT" none
+29 TAUEVENT 0 "CPU Cores | 64" TriggerValue
+30 TAUEVENT 0 "CPU MHz | 2000.000" TriggerValue
+31 TAUEVENT 0 "CPU Type | AMD EPYC 7A53 64-Core Processor" TriggerValue
+32 TAUEVENT 0 "CPU Vendor | AuthenticAMD" TriggerValue
+122 TAUEVENT 0 "CPUs Allowed List | 17" TriggerValue
+34 TAUEVENT 0 "CPUs Allowed List | 9" TriggerValue
+33 TAUEVENT 0 "CPUs Allowed | 00000000,00000000,00000000,00000200" TriggerValue
+121 TAUEVENT 0 "CPUs Allowed | 00000000,00000000,00000000,00020000" TriggerValue
+123 TAUEVENT 0 "CRAY_CORE_ID | 17" TriggerValue
+35 TAUEVENT 0 "CRAY_CORE_ID | 9" TriggerValue
+36 TAUEVENT 0 "CWD | /pfs/lustrep3/scratch/project_465001194/thurache/summerschool/application-performance/demos/tau/02_compiler_instrumentation" TriggerValue
+37 TAUEVENT 0 "Cache Size | 512 KB" TriggerValue
+38 TAUEVENT 0 "Command Line | src/hip/heat_hip 4000 4000 3000" TriggerValue
+16 TAU_USER 0 "CopyDeviceToHost " EntryExit
+14 TAU_USER 0 "CopyHostToDevice " EntryExit
+27 TAUEVENT 0 "Correlation ID : CopyDeviceToHost" TriggerValue
+25 TAUEVENT 0 "Correlation ID : CopyHostToDevice" TriggerValue
+26 TAUEVENT 0 "Correlation ID : KernelExecution evolve_kernel(double*, double*, double, double, int, int, double, double)" TriggerValue
+20 TAUEVENT 0 "Correlation ID" TriggerValue
+105 TRACER 0 "EV_INIT" none
+39 TAUEVENT 0 "Executable | /pfs/lustrep3/scratch/project_465001194/thurache/summerschool/application-performance/demos/tau/02_compiler_instrumentation/src/hip/heat_hip" TriggerValue
+106 TRACER 0 "FLUSH" EntryExit
+107 TRACER 0 "FLUSH_CLOSE" none
+108 TRACER 0 "FLUSH_INITM" none
+40 TAUEVENT 0 "Hostname | nid005072" TriggerValue
+15 TAU_USER 0 "KernelExecution evolve_kernel(double*, double*, double, double, int, int, double, double) " EntryExit
+41 TAUEVENT 0 "Local Time | 2024-07-02T15:35:36+03:00" TriggerValue
+112 TAU_MESSAGE -8 "MESSAGE_RECV" par
+111 TAU_MESSAGE -7 "MESSAGE_SEND" par
+8 MPI 0 "MPI Collective Sync  " EntryExit
+42 TAUEVENT 0 "MPI Processor Name | nid005072" TriggerValue
+7 MPI 0 "MPI_Allreduce()  " EntryExit
+5 MPI 0 "MPI_Comm_rank()  " EntryExit
+4 MPI 0 "MPI_Comm_size()  " EntryExit
+17 MPI 0 "MPI_Finalize()  " EntryExit
+3 MPI 0 "MPI_Init()  " EntryExit
+6 MPI 0 "MPI_Recv()  " EntryExit
+120 MPI 0 "MPI_Send()  " EntryExit
+11 MPI 0 "MPI_Sendrecv()  " EntryExit
+44 TAUEVENT 0 "Memories Allowed List | 0-3" TriggerValue
+43 TAUEVENT 0 "Memories Allowed | 00000000,0000000f" TriggerValue
+45 TAUEVENT 0 "Memory Size | 527636868 kB" TriggerValue
+23 TAUEVENT 0 "Message size for all-reduce" TriggerValue
+22 TAUEVENT 0 "Message size received from all nodes" TriggerValue
+24 TAUEVENT 0 "Message size sent to all nodes" TriggerValue
+46 TAUEVENT 0 "Node Name | nid005072" TriggerValue
+117 TAUEVENT 0 "ONESIDED_MESSAGE" TriggerValue
+118 TAUEVENT 0 "ONESIDED_MESSAGE_ID_TriggerValueT1" TriggerValue
+119 TAUEVENT 0 "ONESIDED_MESSAGE_ID_TriggerValueT2" TriggerValue
+116 TAUEVENT 0 "ONESIDED_MESSAGE_RECIPROCAL_RECV" TriggerValue
+115 TAUEVENT 0 "ONESIDED_MESSAGE_RECIPROCAL_SEND" TriggerValue
+114 TAUEVENT 0 "ONESIDED_MESSAGE_RECV" TriggerValue
+113 TAUEVENT 0 "ONESIDED_MESSAGE_SEND" TriggerValue
+47 TAUEVENT 0 "OS Machine | x86_64" TriggerValue
+48 TAUEVENT 0 "OS Name | Linux" TriggerValue
+49 TAUEVENT 0 "OS Release | 5.14.21-150400.24.81_12.0.75-cray_shasta_c" TriggerValue
+50 TAUEVENT 0 "OS Version | #1 SMP Thu Sep 7 00:12:59 UTC 2023 (1027017)" TriggerValue
+51 TAUEVENT 0 "Starting Timestamp | 1719923736386740" TriggerValue
+124 TAUEVENT 0 "Starting Timestamp | 1719923736386761" TriggerValue
+52 TAUEVENT 0 "TAU Architecture | default" TriggerValue
+53 TAUEVENT 0 "TAU Config |  -papi=/opt/cray/pe/papi/7.0.1.1 -pthread -bfd=download -dwarf=download -unwind=download -otf=download -mpi -c++=CC -fortran=ftn -cc=cc -rocm=/appl/lumi/SW/LUMI-23.09/G/EB/rocm/5.4.6/ -hip=/appl/lumi/SW/LUMI-23.09/G/EB/rocm/5.4.6//hip -rocprofiler=/appl/lumi/SW/LUMI-23.09/G/EB/rocm/5.4.6//rocprofiler -roctracer=/appl/lumi/SW/LUMI-23.09/G/EB/rocm/5.4.6//roctracer" TriggerValue
+54 TAUEVENT 0 "TAU Makefile | /projappl/project_465001194/apps/tau/2.33.1/craycnl/lib/Makefile.tau-rocm-hip-rocprofiler-roctracer-cray-papi-mpi-pthread" TriggerValue
+55 TAUEVENT 0 "TAU Version | 2.33-git" TriggerValue
+56 TAUEVENT 0 "TAU_BFD_LOOKUP | on" TriggerValue
+57 TAUEVENT 0 "TAU_CALLPATH_DEPTH | 2" TriggerValue
+58 TAUEVENT 0 "TAU_CALLSITE_DEPTH | 1" TriggerValue
+59 TAUEVENT 0 "TAU_COMM_MATRIX | off" TriggerValue
+60 TAUEVENT 0 "TAU_CUDA_BINARY_EXE | " TriggerValue
+61 TAUEVENT 0 "TAU_CUPTI_API | runtime" TriggerValue
+62 TAUEVENT 0 "TAU_CURRENT_TIMER_EXIT_PARAMS | off" TriggerValue
+63 TAUEVENT 0 "TAU_EBS_KEEP_UNRESOLVED_ADDR | off" TriggerValue
+64 TAUEVENT 0 "TAU_IBM_BG_HWP_COUNTERS | off" TriggerValue
+65 TAUEVENT 0 "TAU_MEASURE_TAU | off" TriggerValue
+66 TAUEVENT 0 "TAU_MEMDBG_PROTECT_ABOVE | off" TriggerValue
+67 TAUEVENT 0 "TAU_MEMDBG_PROTECT_BELOW | off" TriggerValue
+68 TAUEVENT 0 "TAU_MEMDBG_PROTECT_FREE | off" TriggerValue
+69 TAUEVENT 0 "TAU_OPENMP_RUNTIME | on" TriggerValue
+70 TAUEVENT 0 "TAU_OPENMP_RUNTIME_EVENTS | on" TriggerValue
+71 TAUEVENT 0 "TAU_OPENMP_RUNTIME_STATES | off" TriggerValue
+72 TAUEVENT 0 "TAU_OUTPUT_CUDA_CSV | off" TriggerValue
+73 TAUEVENT 0 "TAU_PAPI_MULTIPLEXING | off" TriggerValue
+74 TAUEVENT 0 "TAU_PROFILE | off" TriggerValue
+75 TAUEVENT 0 "TAU_PROFILE_FORMAT | profile" TriggerValue
+76 TAUEVENT 0 "TAU_RECYCLE_THREADS | off" TriggerValue
+77 TAUEVENT 0 "TAU_REGION_ADDRESSES | off" TriggerValue
+78 TAUEVENT 0 "TAU_SAMPLING | off" TriggerValue
+79 TAUEVENT 0 "TAU_SHOW_MEMORY_FUNCTIONS | off" TriggerValue
+80 TAUEVENT 0 "TAU_SIGNALS_GDB | off" TriggerValue
+81 TAUEVENT 0 "TAU_SYNCHRONIZE_CLOCKS | on" TriggerValue
+82 TAUEVENT 0 "TAU_THROTTLE | on" TriggerValue
+83 TAUEVENT 0 "TAU_THROTTLE_NUMCALLS | 100000" TriggerValue
+84 TAUEVENT 0 "TAU_THROTTLE_PERCALL | 10" TriggerValue
+85 TAUEVENT 0 "TAU_TRACE | on" TriggerValue
+86 TAUEVENT 0 "TAU_TRACE_FORMAT | tau" TriggerValue
+87 TAUEVENT 0 "TAU_TRACK_CUDA_CDP | off" TriggerValue
+88 TAUEVENT 0 "TAU_TRACK_CUDA_ENV | off" TriggerValue
+89 TAUEVENT 0 "TAU_TRACK_CUDA_INSTRUCTIONS | " TriggerValue
+90 TAUEVENT 0 "TAU_TRACK_CUDA_SASS | off" TriggerValue
+91 TAUEVENT 0 "TAU_TRACK_HEADROOM | off" TriggerValue
+92 TAUEVENT 0 "TAU_TRACK_HEAP | off" TriggerValue
+93 TAUEVENT 0 "TAU_TRACK_IO_PARAMS | off" TriggerValue
+94 TAUEVENT 0 "TAU_TRACK_MEMORY_FOOTPRINT | off" TriggerValue
+95 TAUEVENT 0 "TAU_TRACK_MEMORY_LEAKS | off" TriggerValue
+96 TAUEVENT 0 "TAU_TRACK_MESSAGE | on" TriggerValue
+97 TAUEVENT 0 "TAU_TRACK_SIGNALS | off" TriggerValue
+98 TAUEVENT 0 "TAU_TRACK_UNIFIED_MEMORY | off" TriggerValue
+99 TAUEVENT 0 "TAU_VERBOSE_RANK | -1" TriggerValue
+28 TAUEVENT 0 "TauTraceClockOffsetEnd" TriggerValue
+21 TAUEVENT 0 "TauTraceClockOffsetStart" TriggerValue
+100 TAUEVENT 0 "Timestamp | 1719923736386976" TriggerValue
+125 TAUEVENT 0 "Timestamp | 1719923736387001" TriggerValue
+101 TAUEVENT 0 "UTC Time | 2024-07-02T12:35:36Z" TriggerValue
+109 TRACER 0 "WALL_CLOCK" none
+13 TAU_USER 0 "hipDeviceSynchronize " EntryExit
+19 TAU_USER 0 "hipFree " EntryExit
+18 TAU_USER 0 "hipHostFree " EntryExit
+12 TAU_USER 0 "hipLaunchKernel " EntryExit
+9 TAU_USER 0 "hipMalloc " EntryExit
+10 TAU_USER 0 "hipMemcpy " EntryExit
+102 TAUEVENT 0 "pid | 122567" TriggerValue
+126 TAUEVENT 0 "pid | 122568" TriggerValue
+103 TAUEVENT 0 "tid | 122567" TriggerValue
+127 TAUEVENT 0 "tid | 122568" TriggerValue
+104 TAUEVENT 0 "username | thurache" TriggerValue

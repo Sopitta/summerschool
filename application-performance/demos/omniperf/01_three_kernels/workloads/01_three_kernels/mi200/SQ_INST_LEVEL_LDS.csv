@@ -1,0 +1,4 @@
+Index,KernelName,gpu-id,queue-id,queue-index,pid,tid,grd,wgr,lds,scr,arch_vgpr,accum_vgpr,sgpr,wave_size,sig,obj,SQ_INSTS_LDS,SQ_INST_LEVEL_LDS,SQ_ACCUM_PREV_HIRES,DispatchNs,BeginNs,EndNs,CompleteNs
+0,"kernel1(unsigned long, float*, float*) ",4,0,0,111929,111929,1048576,1024,0,0,52,4,64,64,0x0,0x1549bceb0c80,0,0,0,6393404526007823,6393417687307791,6393417707223291,6393404555336427
+1,"kernel2(unsigned long, float, float*, float*, float*) ",4,0,1,111929,111929,1048576,1024,0,0,12,4,48,64,0x0,0x1549bceb0cc0,0,0,0,6393404535482048,6393417707223291,6393417721348235,6393404570360817
+2,"kernel3(unsigned long, float, float*, float*, float*) ",4,0,2,111929,111929,1048576,1024,0,0,20,4,48,64,0x0,0x1549bceb0d00,0,0,0,6393404535605238,6393417721348235,6393417736030140,6393404585268241

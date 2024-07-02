@@ -1,0 +1,4 @@
+KernelName,Count,Sum(ns),Mean(ns),Median(ns),Pct
+"kernel1(unsigned long, float*, float*) ",1,19915500.0,19915500.0,19915500.0,40.875490593629195
+"kernel3(unsigned long, float, float*, float*, float*) ",1,14681907.0,14681907.0,14681907.0,30.133822975824792
+"kernel2(unsigned long, float, float*, float*, float*) ",1,14124944.0,14124944.0,14124944.0,28.990686430546013
